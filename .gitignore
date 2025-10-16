@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -137,3 +138,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+=======
+node_modules/
+.DS_Store
+.env
+dist/
+>>>>>>> 426f3ab (feat: implement authentication and authorization middlewares)
