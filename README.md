@@ -50,7 +50,7 @@ CLOUDINARY_API_SECRET=your-api-secret
 ## Environment Variables
 | ชื่อ | คำอธิบาย |
 | --- | --- |
-| `NODE_ENV` | สภาพแวดล้อมการรัน (`development`, `production`, `test`) |
+| `NODE_ENV` | สภาพแวดล้อมการรัน (`development`, `production`) |
 | `PORT` | พอร์ตที่เซิร์ฟเวอร์จะรับฟัง |
 | `DOCS_URL` | URL สำหรับเอกสาร API ภายนอก (ใช้โชว์ใน root endpoint) |
 | `MONGO_URI` | Connection string ของ MongoDB |
