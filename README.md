@@ -130,6 +130,6 @@ All routes are prefixed with `/v1`. Authenticated routes expect a Bearer token g
 - Responses share a common envelope: `{ code, message, type, data }`.
 
 ## Contributing & License
-Pull requests, issues, and feature ideas are welcome. Blog API is released under the [Apache-2.0 License](./LICENSE), so you can adapt it for commercial products, internal tools, or SaaS offerings without friction.
+Pull requests, issues, and feature ideas are welcome. Blog API is released under the [Apache-2.0 License](./LICENSE), so you can adapt it for commercial products, internal tools with minimal friction.
 
 Own your publishing. Let your team share updates on your terms.
