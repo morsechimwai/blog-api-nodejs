@@ -123,8 +123,9 @@ All routes are prefixed with `/v1`. Authenticated routes expect a Bearer token g
 - `login`: `{ email, password }`
 
 **Example responses**
+
+**Successful login (200):**
 ```json
-// Successful login (200)
 {
   "success": true,
   "code": "login_success",
@@ -139,15 +140,19 @@ All routes are prefixed with `/v1`. Authenticated routes expect a Bearer token g
     }
   }
 }
+```
 
-// Authentication error (401)
+**Authentication error (401):**
+```json
 {
   "success": false,
   "code": "invalid_credentials",
   "message": "Email or password is incorrect"
 }
+```
 
-// Validation error (400)
+**Validation error (400):**
+```json
 {
   "success": false,
   "code": "validation_failed",
@@ -236,14 +241,14 @@ The API uses consistent HTTP status codes and error response formats:
   - **Error response**: Returns structured error message when limit exceeded
 - **Admin whitelist**: Admin email allowlist lives in `src/config/index.ts` (`WHITELIST_ADMINS_MAIL`)
 - **Response format**: All API responses follow a consistent envelope structure:
-  ```json
-  {
-    "success": boolean,
-    "code": "string",
-    "message": "string",
-    "data": object,     // Success responses only
-    "error": object,    // Error responses only
-    "detail": "string"  // Additional error context (optional)
+  ```typescript
+  interface ApiResponse<T = any> {
+    success: boolean;           // true for successful operations, false for errors
+    code: string;              // Response code identifier
+    message: string;           // Human-readable message
+    data?: T;                  // Response data (success responses only)
+    error?: any;               // Error details (error responses only)
+    detail?: string;           // Additional error context (optional)
   }
   ```
 
