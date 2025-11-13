@@ -21,9 +21,9 @@ const getAllBlogs = async (req: Request, res: Response) => {
 		const userId = req.userId;
 
 		// Pagination parameters
+		const page = parseInt(req.query.page as string) || 1;
 		const limit = parseInt(req.query.limit as string) || config.defaultResLimit;
-		const offset =
-			parseInt(req.query.offset as string) || config.defaultResOffset;
+		const offset = (page - 1) * limit;
 
 		// Determine user role to filter blogs accordingly
 		const user = await User.findById(userId).select('role').lean().exec();
@@ -54,9 +54,10 @@ const getAllBlogs = async (req: Request, res: Response) => {
 			message: 'Blogs fetched successfully.',
 			type: 'success',
 			data: {
+				page,
 				limit,
-				offset,
 				total,
+				totalPages: Math.ceil(total / limit),
 				blogs,
 			},
 		});

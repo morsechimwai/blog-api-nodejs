@@ -56,12 +56,13 @@ const login = async (req: Request, res: Response): Promise<void> => {
 			sameSite: 'strict', // Adjust based on your requirements
 		});
 
-		response(res, STATUS.CREATED, {
-			code: 'created',
-			message: 'User logged in successfully.',
+		response(res, STATUS.OK, {
+			code: 'login_success',
+			message: 'Login successful',
 			type: 'success',
 			data: {
 				user: {
+					id: user._id,
 					username: user.username,
 					email: user.email,
 					role: user.role,
